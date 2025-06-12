@@ -2,6 +2,12 @@
 
 This is a simple, static, pixel-art themed blog website.
 
+## Recent Updates
+
+- **Navigation Added:** A navigation bar with "Home" and "Blog" links has been added to the top of the page.
+- **Blog Page Created:** A `blog.html` page has been set up, ready for future Markdown editing functionality.
+- **Stardew Valley Theming:** The overall visual theme has been updated with a color palette and stylistic elements inspired by Stardew Valley, complementing the NES.css framework.
+
 ## Features
 
 *   Basic HTML structure

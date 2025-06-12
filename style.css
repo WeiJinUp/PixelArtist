@@ -1,13 +1,22 @@
+:root {
+    --stardew-brown: #8B5A2B;    /* SaddleBrown */
+    --stardew-dark-brown: #2a1a0a; /* Darker, for backgrounds */
+    --stardew-green: #5DBB63;    /* Lush Green */
+    --stardew-blue: #87CEEB;     /* Sky Blue */
+    --accent-goldenrod: #DAA520; /* Existing accent */
+    --nes-dark-bg: #212529; /* Default NES.css dark container bg for reference */
+}
+
 /* Original body styles - some kept, some deferred to NES.css */
 body {
     font-family: 'Press Start 2P', cursive;
+    background-color: var(--stardew-dark-brown);
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
     padding: 20px; /* Overall page padding */
     font-size: 16px; /* Base font size, may be adjusted by NES.css components */
-    /* background-color: #202020; /* NES.css will likely set this via .is-dark on body or html */
     /* color: #00FF00; /* Default text color, NES.css will likely set this */
 }
 
@@ -23,36 +32,43 @@ img {
     width: 80%;
     max-width: 800px; /* Max width for larger screens */
     margin-bottom: 20px; /* Space before footer */
+    /* background-color: var(--stardew-brown); /* Example if nes-container is not dark */
 }
 
 /* Header styling - H1 is inside a .nes-container.is-rounded */
-header .nes-container.is-rounded { /* More specific selector */
-    text-align: center; /* Center the H1 inside */
-    margin-bottom: 20px; /* Spacing after header */
-    padding: 10px; /* Padding inside the rounded container */
+header .nes-container.is-rounded {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--stardew-brown);
+    border-color: var(--accent-goldenrod) !important; /* NES.css uses !important for borders */
 }
 
 header h1 {
     font-size: 2.5em; /* Larger font for the main title */
     margin: 0;
     text-shadow: 2px 2px #000000; /* Simple text shadow */
-    color: #DAA520; /* GoldenRod accent color for main title */
+    color: var(--accent-goldenrod); /* GoldenRod accent color for main title */
 }
 
 /* Blog post styling - .blog-post is now also a .nes-container */
-.blog-post.nes-container { /* More specific selector */
+/* If .blog-post.nes-container is also .is-dark, its background will be var(--nes-dark-bg) or #212529 */
+/* We can override it if needed, e.g. */
+.blog-post.nes-container {
     margin-bottom: 20px; /* Space between posts */
+    /* background-color: var(--stardew-brown); */ /* If we want posts to have this bg */
+    /* border-color: var(--stardew-green) !important; */
 }
 
 /* Post titles are <p class="title">, styled by NES.css */
 /* We can add overrides if needed, e.g.: */
 .blog-post p.title {
-    /* color: #FFFF00; /* Example: if we want to keep original yellow for post titles */
+    /* color: var(--stardew-green); */
 }
 
 .blog-post p {
     /* General paragraph text color within posts, if different from NES.css default */
-    /* color: #E0E0E0; /* Example: a slightly softer white */
+    /* color: #E0E0E0; */
 }
 
 footer {
@@ -60,6 +76,33 @@ footer {
     margin-top: 30px;
     padding-top: 15px;
     font-size: 0.8em;
-    /* border-top: 2px solid #fff; /* Simple border if needed, NES.css might have utilities */
-    color: #888; /* Muted color for footer text */
+    color: var(--stardew-green); /* Muted color for footer text */
+    border-top: 2px dashed var(--stardew-brown);
+}
+
+nav.nes-container.is-dark {
+    background-color: var(--stardew-blue) !important; /* Override NES dark */
+    border-color: var(--stardew-brown) !important;
+}
+
+nav.nes-container.is-dark .nes-btn {
+    background-color: var(--stardew-brown); /* Buttons on blue nav */
+    color: white;
+}
+
+nav.nes-container.is-dark .nes-btn:hover {
+    background-color: var(--accent-goldenrod);
+    color: black;
+}
+
+hr.pixelated {
+    border: none;
+    height: 4px;
+    background-image: linear-gradient(to right,
+        var(--accent-goldenrod) 25%,
+        var(--stardew-green) 25%, var(--stardew-green) 50%,
+        var(--stardew-blue) 50%, var(--stardew-blue) 75%,
+        var(--stardew-brown) 75%);
+    background-size: 8px 4px; /* Adjust for more pixelation */
+    image-rendering: pixelated;
 }

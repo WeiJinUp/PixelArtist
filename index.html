@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>My Pixel Blog</h1>
+        <div class="nes-container is-rounded"><h1>★ My Pixel Blog</h1></div>
     </header>
 
-    <div class="container">
-        <article class="blog-post">
-            <h2>First Post!</h2>
+    <div class="container nes-container is-dark with-title">
+        <p class="title">My Pixel Blog Posts</p>
+        <article class="blog-post nes-container">
+            <p class="title">First Post!</p>
             <p>This is my first post on my new pixel blog. Welcome!</p>
             <p>Here's a bit more text to see how paragraphs look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </article>
